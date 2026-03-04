@@ -96,7 +96,8 @@ def create_dogs():
                 age=int(dog_info['Age']),
                 gender=dog_info['Gender'],
                 status=random.choice(list(AdoptionStatus)),
-                intake_date=datetime.now() - timedelta(days=random.randint(1, 365))
+                intake_date=datetime.now() - timedelta(days=random.randint(1, 365)),
+                image_url='https://placedog.net/400/300'
             )
             db.session.add(dog)
             breed_counts[breed_id] += 1
