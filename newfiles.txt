@@ -1,0 +1,18 @@
+[
+  {
+    "path": "C:\\Code\\pets-workshop\\server\\app.py",
+    "lastWriteTime": "2026-03-04T14:32:58.9114005+13:00"
+  },
+  {
+    "path": "C:\\Code\\pets-workshop\\client\\tsconfig.json",
+    "lastWriteTime": "2026-03-04T14:32:58.9098950+13:00"
+  },
+  {
+    "path": "C:\\Code\\pets-workshop\\client\\src\\components\\DogList.svelte",
+    "lastWriteTime": "2026-03-04T14:32:58.9068871+13:00"
+  },
+  {
+    "path": "C:\\Code\\pets-workshop\\client\\package-lock.json",
+    "lastWriteTime": "2026-03-04T14:32:58.9043778+13:00"
+  }
+]
