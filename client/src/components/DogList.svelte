@@ -6,6 +6,7 @@
         name: string;
         breed: string;
         status: string;
+        image_url: string | null;
     }
 
     interface Breed {
@@ -134,6 +135,12 @@
                     href={`/dog/${DOG.id}`} 
                     class="group block bg-slate-800/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-slate-700/50 hover:border-blue-500/50 hover:shadow-blue-500/10 hover:shadow-xl transition-all duration-300 hover:translate-y-[-6px]"
                 >
+                    <img
+                        src={DOG.image_url || 'https://placedog.net/400/300'}
+                        alt={DOG.name}
+                        class="w-full h-48 object-cover"
+                        on:error={(E) => { (E.currentTarget as HTMLImageElement).src = 'https://placedog.net/400/300'; }}
+                    />
                     <div class="p-6 relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="relative z-10">

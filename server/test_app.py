@@ -12,13 +12,16 @@ class TestApp(unittest.TestCase):
         # Turn off database initialization for tests
         app.config['TESTING'] = True
         
-    def _create_mock_dog(self, dog_id, name, breed):
+    def _create_mock_dog(self, dog_id, name, breed, image_url='https://placedog.net/400/300'):
         """Helper method to create a mock dog with standard attributes"""
-        dog = MagicMock(spec=['to_dict', 'id', 'name', 'breed'])
+        from models.dog import AdoptionStatus
+        dog = MagicMock(spec=['to_dict', 'id', 'name', 'breed', 'status', 'image_url'])
         dog.id = dog_id
         dog.name = name
         dog.breed = breed
-        dog.to_dict.return_value = {'id': dog_id, 'name': name, 'breed': breed}
+        dog.status = AdoptionStatus.AVAILABLE
+        dog.image_url = image_url
+        dog.to_dict.return_value = {'id': dog_id, 'name': name, 'breed': breed, 'status': 'AVAILABLE', 'image_url': image_url}
         return dog
         
     def _setup_query_mock(self, mock_query, dogs):
@@ -89,7 +92,7 @@ class TestApp(unittest.TestCase):
         data = json.loads(response.data)
         self.assertTrue(isinstance(data, list))
         self.assertEqual(len(data), 1)
-        self.assertEqual(set(data[0].keys()), {'id', 'name', 'breed'})
+        self.assertEqual(set(data[0].keys()), {'id', 'name', 'breed', 'status', 'image_url'})
 
 
 if __name__ == '__main__':

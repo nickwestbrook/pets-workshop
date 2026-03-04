@@ -20,6 +20,8 @@ class Dog(BaseModel):
     gender = db.Column(db.String(10))
     description = db.Column(db.Text)
     
+    image_url = db.Column(db.String(500), nullable=True)
+
     # Adoption status
     status = db.Column(db.Enum(AdoptionStatus), default=AdoptionStatus.AVAILABLE)
     intake_date = db.Column(db.DateTime, default=datetime.now)
@@ -52,5 +54,6 @@ class Dog(BaseModel):
             'age': self.age,
             'gender': self.gender,
             'description': self.description,
-            'status': self.status.name if self.status else 'UNKNOWN'
+            'status': self.status.name if self.status else 'UNKNOWN',
+            'image_url': self.image_url
         }

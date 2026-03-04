@@ -20,7 +20,8 @@ def get_dogs() -> Response:
         Dog.id, 
         Dog.name, 
         Breed.name.label('breed'),
-        Dog.status
+        Dog.status,
+        Dog.image_url
     ).join(Breed, Dog.breed_id == Breed.id)
     
     # Filter by breed if breed_id query parameter is provided
@@ -41,7 +42,8 @@ def get_dogs() -> Response:
             'id': DOG.id,
             'name': DOG.name,
             'breed': DOG.breed,
-            'status': DOG.status.name if DOG.status else 'UNKNOWN'
+            'status': DOG.status.name if DOG.status else 'UNKNOWN',
+            'image_url': DOG.image_url
         }
         for DOG in DOGS_QUERY
     ]
