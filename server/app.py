@@ -1,7 +1,8 @@
 import os
 from typing import Dict, List, Any, Optional
-from flask import Flask, jsonify, Response
+from flask import Flask, jsonify, request, Response
 from models import init_db, db, Dog, Breed
+from models.dog import AdoptionStatus
 
 # Get the server directory path
 base_dir: str = os.path.abspath(os.path.dirname(__file__))
@@ -15,25 +16,37 @@ init_db(app)
 
 @app.route('/api/dogs', methods=['GET'])
 def get_dogs() -> Response:
-    query = db.session.query(
+    QUERY = db.session.query(
         Dog.id, 
         Dog.name, 
-        Breed.name.label('breed')
+        Breed.name.label('breed'),
+        Dog.status
     ).join(Breed, Dog.breed_id == Breed.id)
     
-    dogs_query = query.all()
+    # Filter by breed if breed_id query parameter is provided
+    BREED_ID = request.args.get('breed_id', type=int)
+    if BREED_ID is not None:
+        QUERY = QUERY.filter(Dog.breed_id == BREED_ID)
+    
+    # Filter by availability if available query parameter is provided
+    AVAILABLE = request.args.get('available', type=str)
+    if AVAILABLE and AVAILABLE.lower() == 'true':
+        QUERY = QUERY.filter(Dog.status == AdoptionStatus.AVAILABLE)
+    
+    DOGS_QUERY = QUERY.all()
     
     # Convert the result to a list of dictionaries
-    dogs_list: List[Dict[str, Any]] = [
+    DOGS_LIST: List[Dict[str, Any]] = [
         {
-            'id': dog.id,
-            'name': dog.name,
-            'breed': dog.breed
+            'id': DOG.id,
+            'name': DOG.name,
+            'breed': DOG.breed,
+            'status': DOG.status.name if DOG.status else 'UNKNOWN'
         }
-        for dog in dogs_query
+        for DOG in DOGS_QUERY
     ]
     
-    return jsonify(dogs_list)
+    return jsonify(DOGS_LIST)
 
 @app.route('/api/dogs/<int:id>', methods=['GET'])
 def get_dog(id: int) -> tuple[Response, int] | Response:
@@ -65,7 +78,28 @@ def get_dog(id: int) -> tuple[Response, int] | Response:
     
     return jsonify(dog)
 
-## HERE
+@app.route('/api/breeds', methods=['GET'])
+def get_breeds() -> Response:
+    """
+    Retrieve all dog breeds from the database.
+    Queries the Breed table and returns all breed records as JSON.
+    Each breed object contains its unique identifier and name.
+    Returns:
+        Response: A Flask response object containing a JSON array of breeds.
+                 Each breed is a dictionary with 'id' and 'name' keys.
+    """
+    breeds_query = Breed.query.all()
+    
+    # Convert the result to a list of dictionaries
+    breeds_list: List[Dict[str, Any]] = [
+        {
+            'id': breed.id,
+            'name': breed.name
+        }
+        for breed in breeds_query
+    ]
+    
+    return jsonify(breeds_list)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5100) # Port 5100 to avoid macOS conflicts
