@@ -17,6 +17,13 @@ const { title = "Tailspin Shelter" } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <!-- Apply saved theme before render to prevent flash of unstyled content -->
+        <script is:inline>
+          (function() {
+            var SAVED_THEME = localStorage.getItem('selected-theme') || 'default';
+            document.documentElement.setAttribute('data-theme', SAVED_THEME);
+          })();
+        </script>
         <!-- Preconnect to improve font loading -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
