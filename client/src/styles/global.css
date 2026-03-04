@@ -1,1 +1,345 @@
 @import "tailwindcss";
+
+/* =============================================
+   THEME TRANSITIONS
+   ============================================= */
+html {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+body,
+header,
+main,
+nav,
+section,
+article {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* =============================================
+   80S RETRO THEME 🕹️
+   ============================================= */
+html[data-theme="retro"] body {
+  background-color: #0a0010 !important;
+  color: #fff !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+html[data-theme="retro"] header {
+  background: linear-gradient(135deg, #1a0030, #000d2e) !important;
+  border-bottom: 2px solid #ff00ff !important;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.4) !important;
+}
+
+html[data-theme="retro"] h1,
+html[data-theme="retro"] h2,
+html[data-theme="retro"] h3 {
+  color: #00ffff !important;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6) !important;
+}
+
+html[data-theme="retro"] p,
+html[data-theme="retro"] label,
+html[data-theme="retro"] span:not(.retro-skip) {
+  color: #e0aaff !important;
+}
+
+html[data-theme="retro"] [class*="bg-slate-8"],
+html[data-theme="retro"] [class*="bg-slate-7"] {
+  background-color: rgba(40, 0, 80, 0.85) !important;
+  border-color: rgba(255, 0, 255, 0.35) !important;
+}
+
+html[data-theme="retro"] [class*="border-slate"] {
+  border-color: rgba(255, 0, 255, 0.35) !important;
+}
+
+html[data-theme="retro"] a {
+  color: #00ffff !important;
+}
+
+html[data-theme="retro"] a:hover {
+  color: #ff00ff !important;
+  text-shadow: 0 0 8px rgba(255, 0, 255, 0.7) !important;
+}
+
+html[data-theme="retro"] select,
+html[data-theme="retro"] input[type="checkbox"] {
+  background-color: #1a0033 !important;
+  color: #00ffff !important;
+  border-color: #ff00ff !important;
+}
+
+html[data-theme="retro"] .theme-select {
+  background: rgba(255, 0, 255, 0.15) !important;
+  border-color: #ff00ff !important;
+  color: #fff !important;
+}
+
+/* =============================================
+   TERMINAL CLASSIC THEME 💻
+   ============================================= */
+html[data-theme="terminal"] body {
+  background-color: #000000 !important;
+  color: #00ff00 !important;
+  font-family: 'Courier New', 'Lucida Console', monospace !important;
+}
+
+html[data-theme="terminal"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+html[data-theme="terminal"] header {
+  background-color: #001400 !important;
+  border-bottom: 1px solid #00ff00 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="terminal"] h1,
+html[data-theme="terminal"] h2,
+html[data-theme="terminal"] h3 {
+  color: #00ff00 !important;
+  text-shadow: 0 0 6px rgba(0, 255, 0, 0.5) !important;
+}
+
+html[data-theme="terminal"] p,
+html[data-theme="terminal"] label,
+html[data-theme="terminal"] span {
+  color: #00cc00 !important;
+}
+
+html[data-theme="terminal"] [class*="bg-slate-8"],
+html[data-theme="terminal"] [class*="bg-slate-7"] {
+  background-color: rgba(0, 20, 0, 0.9) !important;
+  border-color: #00ff00 !important;
+  border-style: solid !important;
+}
+
+html[data-theme="terminal"] [class*="border-slate"] {
+  border-color: #00aa00 !important;
+}
+
+html[data-theme="terminal"] a {
+  color: #00ff00 !important;
+}
+
+html[data-theme="terminal"] a:hover {
+  color: #33ff33 !important;
+  text-shadow: 0 0 6px rgba(0, 255, 0, 0.7) !important;
+}
+
+html[data-theme="terminal"] select,
+html[data-theme="terminal"] input[type="checkbox"] {
+  background-color: #001400 !important;
+  color: #00ff00 !important;
+  border-color: #00aa00 !important;
+}
+
+html[data-theme="terminal"] .theme-select {
+  background: rgba(0, 255, 0, 0.1) !important;
+  border-color: #00aa00 !important;
+  color: #00ff00 !important;
+}
+
+/* =============================================
+   HAND-SKETCHED THEME ✏️
+   ============================================= */
+html[data-theme="sketched"] body {
+  background-color: #f5f0e8 !important;
+  color: #2c2416 !important;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Bradley Hand', cursive !important;
+}
+
+html[data-theme="sketched"] header {
+  background-color: #e8dcc8 !important;
+  border-bottom: 3px solid #8b6914 !important;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1) !important;
+}
+
+html[data-theme="sketched"] h1,
+html[data-theme="sketched"] h2,
+html[data-theme="sketched"] h3 {
+  color: #3d2b0a !important;
+  text-shadow: none !important;
+}
+
+html[data-theme="sketched"] p,
+html[data-theme="sketched"] label,
+html[data-theme="sketched"] span {
+  color: #4a3520 !important;
+}
+
+html[data-theme="sketched"] [class*="bg-slate-8"],
+html[data-theme="sketched"] [class*="bg-slate-7"] {
+  background-color: rgba(255, 251, 235, 0.9) !important;
+  border-color: #8b6914 !important;
+  border-style: solid !important;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15) !important;
+}
+
+html[data-theme="sketched"] [class*="border-slate"] {
+  border-color: #8b6914 !important;
+}
+
+html[data-theme="sketched"] a {
+  color: #8b2500 !important;
+}
+
+html[data-theme="sketched"] a:hover {
+  color: #cc3a00 !important;
+}
+
+html[data-theme="sketched"] select,
+html[data-theme="sketched"] input[type="checkbox"] {
+  background-color: #fdf8ee !important;
+  color: #2c2416 !important;
+  border-color: #8b6914 !important;
+}
+
+html[data-theme="sketched"] .theme-select {
+  background: rgba(139, 105, 20, 0.15) !important;
+  border-color: #8b6914 !important;
+  color: #3d2b0a !important;
+}
+
+/* =============================================
+   STEAMPUNK THEME ⚙️
+   ============================================= */
+html[data-theme="steampunk"] body {
+  background-color: #1a0f00 !important;
+  color: #d4a96a !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(180, 100, 20, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(150, 80, 10, 0.04) 0%, transparent 50%) !important;
+}
+
+html[data-theme="steampunk"] header {
+  background: linear-gradient(135deg, #2a1500, #1a0c00) !important;
+  border-bottom: 3px solid #8b5a00 !important;
+  box-shadow: 0 4px 12px rgba(180, 100, 0, 0.3) !important;
+}
+
+html[data-theme="steampunk"] h1,
+html[data-theme="steampunk"] h2,
+html[data-theme="steampunk"] h3 {
+  color: #cd853f !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="steampunk"] p,
+html[data-theme="steampunk"] label,
+html[data-theme="steampunk"] span {
+  color: #c49a52 !important;
+}
+
+html[data-theme="steampunk"] [class*="bg-slate-8"],
+html[data-theme="steampunk"] [class*="bg-slate-7"] {
+  background-color: rgba(42, 20, 0, 0.85) !important;
+  border-color: rgba(180, 100, 0, 0.5) !important;
+  border-style: solid !important;
+  box-shadow: 0 2px 8px rgba(180, 100, 0, 0.2) !important;
+}
+
+html[data-theme="steampunk"] [class*="border-slate"] {
+  border-color: rgba(180, 100, 0, 0.4) !important;
+}
+
+html[data-theme="steampunk"] a {
+  color: #cd853f !important;
+}
+
+html[data-theme="steampunk"] a:hover {
+  color: #e8a050 !important;
+  text-shadow: 0 0 8px rgba(200, 130, 40, 0.5) !important;
+}
+
+html[data-theme="steampunk"] select,
+html[data-theme="steampunk"] input[type="checkbox"] {
+  background-color: #2a1500 !important;
+  color: #d4a96a !important;
+  border-color: #8b5a00 !important;
+}
+
+html[data-theme="steampunk"] .theme-select {
+  background: rgba(200, 130, 40, 0.15) !important;
+  border-color: #8b5a00 !important;
+  color: #d4a96a !important;
+}
+
+/* =============================================
+   FANTASY REALM THEME 🧙
+   ============================================= */
+html[data-theme="fantasy"] body {
+  background-color: #0d0820 !important;
+  color: #e2d9f3 !important;
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important;
+  background-image:
+    radial-gradient(ellipse at 30% 70%, rgba(124, 58, 237, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(16, 185, 129, 0.05) 0%, transparent 60%) !important;
+}
+
+html[data-theme="fantasy"] header {
+  background: linear-gradient(135deg, #1e0d3e, #0f1a0f) !important;
+  border-bottom: 2px solid #7c3aed !important;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35) !important;
+}
+
+html[data-theme="fantasy"] h1,
+html[data-theme="fantasy"] h2,
+html[data-theme="fantasy"] h3 {
+  color: #c4b5fd !important;
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.5) !important;
+}
+
+html[data-theme="fantasy"] p,
+html[data-theme="fantasy"] label,
+html[data-theme="fantasy"] span {
+  color: #ddd6fe !important;
+}
+
+html[data-theme="fantasy"] [class*="bg-slate-8"],
+html[data-theme="fantasy"] [class*="bg-slate-7"] {
+  background-color: rgba(30, 13, 62, 0.8) !important;
+  border-color: rgba(124, 58, 237, 0.4) !important;
+  border-style: solid !important;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.15) !important;
+}
+
+html[data-theme="fantasy"] [class*="border-slate"] {
+  border-color: rgba(124, 58, 237, 0.4) !important;
+}
+
+html[data-theme="fantasy"] a {
+  color: #a78bfa !important;
+}
+
+html[data-theme="fantasy"] a:hover {
+  color: #c4b5fd !important;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.7) !important;
+}
+
+html[data-theme="fantasy"] select,
+html[data-theme="fantasy"] input[type="checkbox"] {
+  background-color: #1e0d3e !important;
+  color: #e2d9f3 !important;
+  border-color: #7c3aed !important;
+}
+
+html[data-theme="fantasy"] .theme-select {
+  background: rgba(124, 58, 237, 0.2) !important;
+  border-color: #7c3aed !important;
+  color: #e2d9f3 !important;
+}
+
