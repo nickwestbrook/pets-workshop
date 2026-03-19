@@ -1,8 +1,8 @@
 ---
-// Import any necessary dependencies
+import ThemeSelector from './ThemeSelector.svelte';
 ---
 
-<header class="bg-blue-500 dark:bg-blue-700 text-white p-4 shadow-md transition-colors duration-300">
+<header class="header-bar text-white p-4 shadow-md transition-all duration-300">
   <div class="container mx-auto flex justify-between items-center pl-4 pr-4">
     <div class="flex items-center">
       <div class="relative group">
@@ -11,33 +11,36 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <nav id="menu" class="hidden absolute left-0 mt-2 w-48 bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded shadow-lg z-10 transition-colors duration-300">
+        <nav id="menu" class="nav-menu hidden absolute left-0 mt-2 w-48 rounded shadow-lg z-10 transition-all duration-300">
           <ul class="py-1">
-            <li><a href="/" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700">Home</a></li>
-            <li><a href="/about" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700">About</a></li>
+            <li><a href="/" class="block px-4 py-2 nav-link transition-colors duration-200">Home</a></li>
+            <li><a href="/about" class="block px-4 py-2 nav-link transition-colors duration-200">About</a></li>
           </ul>
         </nav>
       </div>
       <h1 class="text-xl font-bold"><a href="/" class="hover:underline">Tailspin Shelter</a></h1>
+    </div>
+    <div class="flex items-center">
+      <ThemeSelector client:load />
     </div>
   </div>
 </header>
 
 <script>
   // Toggle menu visibility when hamburger is clicked
-  const menuToggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('menu');
+  const MENU_TOGGLE = document.getElementById('menu-toggle');
+  const MENU = document.getElementById('menu');
   
-  if (menuToggle && menu) {
-    menuToggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+  if (MENU_TOGGLE && MENU) {
+    MENU_TOGGLE.addEventListener('click', () => {
+      MENU.classList.toggle('hidden');
     });
     
     // Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-      const isClickInside = menuToggle.contains(event.target as Node) || menu.contains(event.target as Node);
-      if (!isClickInside && !menu.classList.contains('hidden')) {
-        menu.classList.add('hidden');
+    document.addEventListener('click', (EVENT) => {
+      const IS_CLICK_INSIDE = MENU_TOGGLE.contains(EVENT.target as Node) || MENU.contains(EVENT.target as Node);
+      if (!IS_CLICK_INSIDE && !MENU.classList.contains('hidden')) {
+        MENU.classList.add('hidden');
       }
     });
   }
