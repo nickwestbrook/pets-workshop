@@ -1,1 +1,552 @@
 @import "tailwindcss";
+
+/* =============================================
+   Theme System - CSS Custom Properties
+   ============================================= */
+
+/* Default theme (dark slate) */
+:root,
+[data-theme="default"] {
+    --theme-bg: #0f172a;
+    --theme-surface: rgba(30, 41, 59, 0.6);
+    --theme-card-bg: rgba(30, 41, 59, 0.7);
+    --theme-text: #f1f5f9;
+    --theme-text-muted: #94a3b8;
+    --theme-text-secondary: #cbd5e1;
+    --theme-accent: #60a5fa;
+    --theme-accent-hover: #3b82f6;
+    --theme-header-bg: #1d4ed8;
+    --theme-header-text: #ffffff;
+    --theme-border: rgba(71, 85, 105, 0.5);
+    --theme-select-bg: rgba(255, 255, 255, 0.15);
+    --theme-select-text: #ffffff;
+    --theme-select-border: rgba(255, 255, 255, 0.3);
+    --theme-option-bg: #1e293b;
+    --theme-option-text: #f1f5f9;
+    --theme-nav-bg: #1e293b;
+    --theme-nav-text: #f1f5f9;
+    --theme-nav-hover: #334155;
+    --theme-font: 'Inter', system-ui, sans-serif;
+    --theme-font-size: 1rem;
+    --theme-card-border: rgba(71, 85, 105, 0.5);
+    --theme-btn-bg: #2563eb;
+    --theme-btn-hover: #1d4ed8;
+    --theme-btn-text: #ffffff;
+    --theme-filter-bg: rgba(30, 41, 59, 0.6);
+    --theme-input-bg: #334155;
+    --theme-input-text: #e2e8f0;
+    --theme-input-border: #475569;
+    --theme-heading: #f1f5f9;
+}
+
+/* =============================================
+   80s Retro Theme 🕹️
+   ============================================= */
+[data-theme="retro"] {
+    --theme-bg: #0d0221;
+    --theme-surface: rgba(30, 3, 80, 0.7);
+    --theme-card-bg: rgba(26, 5, 70, 0.8);
+    --theme-text: #ff71ce;
+    --theme-text-muted: #b967ff;
+    --theme-text-secondary: #05ffa1;
+    --theme-accent: #01cdfe;
+    --theme-accent-hover: #05ffa1;
+    --theme-header-bg: #12002e;
+    --theme-header-text: #ff71ce;
+    --theme-border: rgba(1, 205, 254, 0.4);
+    --theme-select-bg: rgba(1, 205, 254, 0.15);
+    --theme-select-text: #01cdfe;
+    --theme-select-border: rgba(1, 205, 254, 0.5);
+    --theme-option-bg: #12002e;
+    --theme-option-text: #ff71ce;
+    --theme-nav-bg: #0d0221;
+    --theme-nav-text: #ff71ce;
+    --theme-nav-hover: #1a0050;
+    --theme-font: 'Press Start 2P', monospace;
+    --theme-font-size: 0.7rem;
+    --theme-card-border: rgba(1, 205, 254, 0.5);
+    --theme-btn-bg: #ff71ce;
+    --theme-btn-hover: #b967ff;
+    --theme-btn-text: #0d0221;
+    --theme-filter-bg: rgba(30, 3, 80, 0.6);
+    --theme-input-bg: #1a0050;
+    --theme-input-text: #ff71ce;
+    --theme-input-border: rgba(1, 205, 254, 0.5);
+    --theme-heading: #01cdfe;
+}
+
+/* =============================================
+   Terminal Classic Theme 💻
+   ============================================= */
+[data-theme="terminal"] {
+    --theme-bg: #000000;
+    --theme-surface: rgba(0, 20, 0, 0.8);
+    --theme-card-bg: rgba(0, 20, 0, 0.9);
+    --theme-text: #00ff00;
+    --theme-text-muted: #00aa00;
+    --theme-text-secondary: #00cc00;
+    --theme-accent: #00ff00;
+    --theme-accent-hover: #33ff33;
+    --theme-header-bg: #001400;
+    --theme-header-text: #00ff00;
+    --theme-border: rgba(0, 255, 0, 0.3);
+    --theme-select-bg: rgba(0, 255, 0, 0.1);
+    --theme-select-text: #00ff00;
+    --theme-select-border: rgba(0, 255, 0, 0.4);
+    --theme-option-bg: #001400;
+    --theme-option-text: #00ff00;
+    --theme-nav-bg: #001400;
+    --theme-nav-text: #00ff00;
+    --theme-nav-hover: #002800;
+    --theme-font: 'VT323', 'Courier New', monospace;
+    --theme-font-size: 1.15rem;
+    --theme-card-border: rgba(0, 255, 0, 0.3);
+    --theme-btn-bg: #003300;
+    --theme-btn-hover: #004400;
+    --theme-btn-text: #00ff00;
+    --theme-filter-bg: rgba(0, 20, 0, 0.8);
+    --theme-input-bg: #001400;
+    --theme-input-text: #00ff00;
+    --theme-input-border: rgba(0, 255, 0, 0.4);
+    --theme-heading: #00ff00;
+}
+
+/* =============================================
+   Hand-Sketched Theme ✏️
+   ============================================= */
+[data-theme="sketched"] {
+    --theme-bg: #f5f0e8;
+    --theme-surface: rgba(245, 235, 215, 0.9);
+    --theme-card-bg: rgba(255, 250, 240, 0.95);
+    --theme-text: #2c1810;
+    --theme-text-muted: #6b4c3b;
+    --theme-text-secondary: #4a3728;
+    --theme-accent: #8b4513;
+    --theme-accent-hover: #6b3410;
+    --theme-header-bg: #deb887;
+    --theme-header-text: #2c1810;
+    --theme-border: rgba(44, 24, 16, 0.3);
+    --theme-select-bg: rgba(255, 248, 230, 0.9);
+    --theme-select-text: #2c1810;
+    --theme-select-border: rgba(44, 24, 16, 0.4);
+    --theme-option-bg: #faf5eb;
+    --theme-option-text: #2c1810;
+    --theme-nav-bg: #fdf5e6;
+    --theme-nav-text: #2c1810;
+    --theme-nav-hover: #f5e6cc;
+    --theme-font: 'Kalam', 'Comic Sans MS', cursive;
+    --theme-font-size: 1rem;
+    --theme-card-border: rgba(44, 24, 16, 0.3);
+    --theme-btn-bg: #8b4513;
+    --theme-btn-hover: #6b3410;
+    --theme-btn-text: #fff8f0;
+    --theme-filter-bg: rgba(245, 235, 215, 0.8);
+    --theme-input-bg: #fdf5e6;
+    --theme-input-text: #2c1810;
+    --theme-input-border: rgba(44, 24, 16, 0.3);
+    --theme-heading: #2c1810;
+}
+
+/* =============================================
+   Steampunk Theme ⚙️
+   ============================================= */
+[data-theme="steampunk"] {
+    --theme-bg: #1a0e00;
+    --theme-surface: rgba(45, 28, 5, 0.8);
+    --theme-card-bg: rgba(40, 25, 5, 0.9);
+    --theme-text: #c8a46e;
+    --theme-text-muted: #9a7a4e;
+    --theme-text-secondary: #b8944e;
+    --theme-accent: #d4af37;
+    --theme-accent-hover: #b8960c;
+    --theme-header-bg: #2a1800;
+    --theme-header-text: #d4af37;
+    --theme-border: rgba(212, 175, 55, 0.3);
+    --theme-select-bg: rgba(212, 175, 55, 0.1);
+    --theme-select-text: #d4af37;
+    --theme-select-border: rgba(212, 175, 55, 0.4);
+    --theme-option-bg: #1a0e00;
+    --theme-option-text: #c8a46e;
+    --theme-nav-bg: #1a0e00;
+    --theme-nav-text: #c8a46e;
+    --theme-nav-hover: #2a1800;
+    --theme-font: 'Special Elite', 'Cinzel', serif;
+    --theme-font-size: 1rem;
+    --theme-card-border: rgba(212, 175, 55, 0.3);
+    --theme-btn-bg: #7a5c00;
+    --theme-btn-hover: #8a6c00;
+    --theme-btn-text: #d4af37;
+    --theme-filter-bg: rgba(45, 28, 5, 0.8);
+    --theme-input-bg: #2a1800;
+    --theme-input-text: #c8a46e;
+    --theme-input-border: rgba(212, 175, 55, 0.4);
+    --theme-heading: #d4af37;
+}
+
+/* =============================================
+   Fantasy Realm Theme 🧙
+   ============================================= */
+[data-theme="fantasy"] {
+    --theme-bg: #080818;
+    --theme-surface: rgba(15, 10, 40, 0.8);
+    --theme-card-bg: rgba(15, 10, 45, 0.9);
+    --theme-text: #d4c8f0;
+    --theme-text-muted: #9b8cc0;
+    --theme-text-secondary: #b8a8d8;
+    --theme-accent: #a78bfa;
+    --theme-accent-hover: #8b5cf6;
+    --theme-header-bg: #0d0828;
+    --theme-header-text: #d4c8f0;
+    --theme-border: rgba(167, 139, 250, 0.3);
+    --theme-select-bg: rgba(167, 139, 250, 0.15);
+    --theme-select-text: #d4c8f0;
+    --theme-select-border: rgba(167, 139, 250, 0.4);
+    --theme-option-bg: #0d0828;
+    --theme-option-text: #d4c8f0;
+    --theme-nav-bg: #0d0828;
+    --theme-nav-text: #d4c8f0;
+    --theme-nav-hover: #1a1240;
+    --theme-font: 'Cinzel', 'Times New Roman', serif;
+    --theme-font-size: 1rem;
+    --theme-card-border: rgba(167, 139, 250, 0.3);
+    --theme-btn-bg: #4c1d95;
+    --theme-btn-hover: #5b21b6;
+    --theme-btn-text: #d4c8f0;
+    --theme-filter-bg: rgba(15, 10, 40, 0.8);
+    --theme-input-bg: #0d0828;
+    --theme-input-text: #d4c8f0;
+    --theme-input-border: rgba(167, 139, 250, 0.4);
+    --theme-heading: #a78bfa;
+}
+
+/* =============================================
+   Global Themed Styles Applied via CSS Variables
+   ============================================= */
+
+html {
+    scroll-behavior: smooth;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    font-family: var(--theme-font);
+    font-size: var(--theme-font-size);
+    min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.4s ease, font-family 0.2s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+.header-bar {
+    background-color: var(--theme-header-bg);
+    color: var(--theme-header-text);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Nav menu */
+.nav-menu {
+    background-color: var(--theme-nav-bg);
+    color: var(--theme-nav-text);
+    border: 1px solid var(--theme-border);
+}
+
+.nav-link {
+    color: var(--theme-nav-text);
+}
+
+.nav-link:hover {
+    background-color: var(--theme-nav-hover);
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--theme-heading);
+    transition: color 0.4s ease;
+}
+
+/* Cards / surface elements */
+.bg-slate-800\/60,
+.bg-slate-800\/70,
+.bg-slate-800\/50,
+.bg-slate-800 {
+    background-color: var(--theme-card-bg) !important;
+    border-color: var(--theme-card-border) !important;
+}
+
+/* Backdrop blur containers */
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+/* Filter containers */
+.bg-slate-800\/60.backdrop-blur-sm {
+    background-color: var(--theme-filter-bg) !important;
+}
+
+/* Text colors */
+.text-slate-100,
+.text-slate-200 {
+    color: var(--theme-text) !important;
+}
+
+.text-slate-300,
+.text-slate-400 {
+    color: var(--theme-text-muted) !important;
+}
+
+/* Accent / blue text */
+.text-blue-400 {
+    color: var(--theme-accent) !important;
+}
+
+/* Border colors */
+.border-slate-700,
+.border-slate-700\/50,
+.border-slate-600 {
+    border-color: var(--theme-border) !important;
+}
+
+/* Select / input elements inside dog list */
+.bg-slate-700 {
+    background-color: var(--theme-input-bg) !important;
+    color: var(--theme-input-text) !important;
+}
+
+.border-slate-600 {
+    border-color: var(--theme-input-border) !important;
+}
+
+.text-slate-200 {
+    color: var(--theme-text) !important;
+}
+
+/* Buttons */
+.bg-blue-600,
+.bg-blue-500 {
+    background-color: var(--theme-btn-bg) !important;
+    color: var(--theme-btn-text) !important;
+}
+
+.hover\:bg-blue-700:hover,
+.hover\:bg-blue-600:hover {
+    background-color: var(--theme-btn-hover) !important;
+}
+
+/* Card hover accent */
+.hover\:border-blue-500\/50:hover {
+    border-color: var(--theme-accent) !important;
+    opacity: 0.5;
+}
+
+/* =============================================
+   Theme-Specific Special Effects
+   ============================================= */
+
+/* 80s Retro - Neon glow effects */
+[data-theme="retro"] h1,
+[data-theme="retro"] h2,
+[data-theme="retro"] h3 {
+    text-shadow: 0 0 10px #01cdfe, 0 0 20px #01cdfe, 0 0 40px #01cdfe;
+    color: #01cdfe !important;
+}
+
+[data-theme="retro"] .header-bar {
+    box-shadow: 0 0 20px rgba(1, 205, 254, 0.3), 0 0 40px rgba(185, 103, 255, 0.2);
+    border-bottom: 2px solid #01cdfe;
+}
+
+[data-theme="retro"] a {
+    color: #05ffa1;
+}
+
+[data-theme="retro"] .bg-slate-800\/60,
+[data-theme="retro"] .bg-slate-800\/70 {
+    border: 1px solid rgba(1, 205, 254, 0.4) !important;
+    box-shadow: 0 0 15px rgba(1, 205, 254, 0.1), inset 0 0 20px rgba(185, 103, 255, 0.05);
+}
+
+[data-theme="retro"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(1, 205, 254, 0.03) 2px,
+        rgba(1, 205, 254, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Terminal - Scan line effect & monospace */
+[data-theme="terminal"] h1,
+[data-theme="terminal"] h2,
+[data-theme="terminal"] h3 {
+    color: #00ff00 !important;
+    text-shadow: 0 0 8px #00ff00;
+}
+
+[data-theme="terminal"] a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+[data-theme="terminal"] .header-bar {
+    border-bottom: 2px solid #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+[data-theme="terminal"] .bg-slate-800\/60,
+[data-theme="terminal"] .bg-slate-800\/70 {
+    border: 1px solid rgba(0, 255, 0, 0.3) !important;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.1);
+}
+
+[data-theme="terminal"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 255, 0, 0.04) 3px,
+        rgba(0, 255, 0, 0.04) 6px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+[data-theme="terminal"] body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Hand-Sketched - Paper texture & rough borders */
+[data-theme="sketched"] .header-bar {
+    border-bottom: 3px dashed rgba(44, 24, 16, 0.5);
+    box-shadow: 0 4px 6px rgba(44, 24, 16, 0.15);
+}
+
+[data-theme="sketched"] .bg-slate-800\/60,
+[data-theme="sketched"] .bg-slate-800\/70 {
+    border: 2px solid rgba(44, 24, 16, 0.3) !important;
+    box-shadow: 3px 3px 0 rgba(44, 24, 16, 0.2), 4px 4px 0 rgba(44, 24, 16, 0.1);
+    border-radius: 2px !important;
+    position: relative;
+}
+
+[data-theme="sketched"] h1,
+[data-theme="sketched"] h2,
+[data-theme="sketched"] h3 {
+    color: #2c1810 !important;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 4px;
+}
+
+[data-theme="sketched"] a {
+    color: #8b4513;
+}
+
+[data-theme="sketched"] body {
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+/* Steampunk - Brass & gear aesthetics */
+[data-theme="steampunk"] .header-bar {
+    border-bottom: 3px solid #d4af37;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+    background: linear-gradient(180deg, #3a2000 0%, #2a1800 100%) !important;
+}
+
+[data-theme="steampunk"] .bg-slate-800\/60,
+[data-theme="steampunk"] .bg-slate-800\/70 {
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    background: linear-gradient(135deg, rgba(40, 25, 5, 0.95) 0%, rgba(30, 18, 2, 0.95) 100%) !important;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05), 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="steampunk"] h1,
+[data-theme="steampunk"] h2,
+[data-theme="steampunk"] h3 {
+    color: #d4af37 !important;
+    letter-spacing: 0.05em;
+}
+
+[data-theme="steampunk"] a {
+    color: #d4af37;
+}
+
+[data-theme="steampunk"] body {
+    background-image: radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+                      radial-gradient(ellipse at bottom right, rgba(139, 90, 43, 0.06) 0%, transparent 50%);
+}
+
+/* Fantasy Realm - Glowing magical effects */
+[data-theme="fantasy"] h1,
+[data-theme="fantasy"] h2,
+[data-theme="fantasy"] h3 {
+    color: #a78bfa !important;
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.5), 0 0 20px rgba(167, 139, 250, 0.2);
+}
+
+[data-theme="fantasy"] .header-bar {
+    background: linear-gradient(135deg, #0d0828 0%, #1a1040 50%, #0d0828 100%) !important;
+    border-bottom: 2px solid rgba(167, 139, 250, 0.4);
+    box-shadow: 0 4px 20px rgba(167, 139, 250, 0.2);
+}
+
+[data-theme="fantasy"] .bg-slate-800\/60,
+[data-theme="fantasy"] .bg-slate-800\/70 {
+    border: 1px solid rgba(167, 139, 250, 0.25) !important;
+    background: linear-gradient(135deg, rgba(15, 10, 45, 0.95) 0%, rgba(10, 5, 30, 0.95) 100%) !important;
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.08), inset 0 0 30px rgba(139, 92, 246, 0.03);
+}
+
+[data-theme="fantasy"] a {
+    color: #a78bfa;
+}
+
+[data-theme="fantasy"] body {
+    background-image:
+        radial-gradient(ellipse at top, rgba(139, 92, 246, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom left, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
+}
+
+/* =============================================
+   Theme Transition Animations
+   ============================================= */
+
+* {
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+}
+
+/* Exclude transitions for elements where it would cause issues */
+input, select, textarea, button, a {
+    transition-property: background-color, border-color, color, box-shadow, transform, opacity;
+    transition-duration: 0.2s;
+}
+
